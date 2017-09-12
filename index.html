@@ -1,0 +1,74 @@
+<html>
+    
+<style>
+@import url(stylee.css);    
+</style>
+    
+<header>
+<aside></aside>
+<p></p>
+<p></p>
+</header>
+ 
+<h1>Tracking investments into Peacebuilding activities</h1>
+ 
+<aside></aside>
+ 
+<p>This sankey diagram visualizes how expenditures directed towards Peacebuilding activities can be measured using the OECD's <a href="https://stats.oecd.org/Index.aspx?DataSetCode=CRS1">ODA Data</a>. It is based on the peacebuilding framework proposed by the Institue for Peace and Economics in their report <a href="http://economicsandpeace.org/wp-content/uploads/2017/03/Measuring-Peacebuilding_WEB.pdf">"Measuring Peacebuilding Cost-Effectiveness"</a>, 2017. The chords connect the activity areas with the respective <a href="http://www.oecd.org/dac/stats/purposecodessectorclassification.htm">purpose codes</a> of the OECD <a href="http://www.oecd.org/dac/stats/dacandcrscodelists.htm">Creditor Reporting System</a>.</p>
+    
+<body>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div id="sankey_multiple" style="width: 900px; height: 300px;"></div>
+
+<script type="text/javascript">
+  google.charts.load("current", {packages:["sankey"]});
+  google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+['IEP 1: Basic Safety and Security ','Conflict prevention and resolution, peace and security [152]',5],
+['Conflict prevention and resolution, peace and security [152]','Security system management and reform [15210]',1],
+['Conflict prevention and resolution, peace and security [152]','Participation in international peacekeeping operations [15230]',1],
+['Conflict prevention and resolution, peace and security [152]','Removal of land mines and explosive remnants of war [15250]',1],
+['Conflict prevention and resolution, peace and security [152]','Child soldiers (Prevention and demobilisation) [15261]',1],
+['Conflict prevention and resolution, peace and security [152]','Reintegration and SALW control [15240]',1],
+['IEP 2: Inclusive Political Processes','Conflict prevention and resolution, peace and security [152]',1],
+['Conflict prevention and resolution, peace and security [152]','Civilian peace-building, conflict prevention and resolution [15220]',1],
+['IEP 2: Inclusive Political Processes','Government and civil society [151]',7],
+['Government and civil society [151]','Legal and judicial development [15130]',1],
+['Government and civil society [151]','Anti-corruption organisations and institutions [15113]',1],
+['Government and civil society [151]','Women’s equality organisations and institutions [15170]',1],
+['Government and civil society [151]','Democratic participation and civil society [15150]',1],
+['Government and civil society [151]','Legislatures and political parties [15152]',1],
+['Government and civil society [151]','Media and free flow of information [15153]',1],
+['Government and civil society [151]','Human rights [15160]',1],
+['IEP 3: Core Government Functions','Government and civil society [151]',3],
+['Government and civil society [151]','Public sector policy and administrative management [15110]',1],
+['Government and civil society [151]','Public Finance Management (PFM) [15111]',1],
+['Government and civil society [151]','Decentralisation and support to subnational government [15112]',1]
+    ]);
+
+    // Set chart options
+    var options = {
+      'width': 1000,
+      'height': 700,
+    //chartArea: {  width: "10%", height: "50%" }
+      //'title': 'Measuring the Peacebuilding and Statebuilding Goals',
+      //'legend': 'right'
+      
+      //sankey: { node: { nodePadding: 80 } },
+      //sankey: { 
+        //node: { label: { labelPadding: 10 } }},
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+</body>
+</html>
